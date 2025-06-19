@@ -3,6 +3,17 @@ import { Calendar } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export const DashboardHeader = () => {
+  // Obtener fecha actual en zona horaria de Perú
+  const getCurrentDatePeru = () => {
+    const now = new Date();
+    const peruTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Lima"}));
+    return peruTime.toLocaleDateString("es-PE", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+  };
+
   return (
     <Card className="bg-gradient-to-r from-slate-800 to-slate-700 text-white p-8 shadow-xl">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
@@ -17,7 +28,7 @@ export const DashboardHeader = () => {
             <Calendar className="w-5 h-5" />
             <span className="text-lg font-medium">Período: Mayo - Julio 2025</span>
           </div>
-          <p className="text-sm text-slate-300">Última actualización: 10 de agosto de 2025</p>
+          <p className="text-sm text-slate-300">Última actualización: {getCurrentDatePeru()}</p>
         </div>
       </div>
     </Card>

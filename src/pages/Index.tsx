@@ -7,6 +7,7 @@ import { InteractionSection } from "@/components/InteractionSection";
 import { ConversionFunnel } from "@/components/ConversionFunnel";
 import { LoyaltySection } from "@/components/LoyaltySection";
 import { LoginForm } from "@/components/LoginForm";
+import { DoorOpen } from "lucide-react";
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,9 +36,10 @@ const Index = () => {
           </div>
           <button
             onClick={handleLogout}
-            className="ml-4 px-4 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors"
+            className="ml-4 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
-            Cerrar Sesión
+            <DoorOpen className="w-4 h-4" />
+            <span className="text-sm font-medium">Salir</span>
           </button>
         </div>
         <MetricsCards />
